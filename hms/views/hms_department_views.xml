@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Department Form View -->
+    <record id="view_hms_department_form" model="ir.ui.view">
+        <field name="name">hms.department.form</field>
+        <field name="model">hms.department</field>
+        <field name="arch" type="xml">
+            <form string="Department">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="capacity"/>
+                        <field name="is_opened"/>
+                        <field name="patient_count" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Department List View -->
+    <record id="view_hms_department_list" model="ir.ui.view">
+        <field name="name">hms.department.list</field>
+        <field name="model">hms.department</field>
+        <field name="arch" type="xml">
+            <list string="Departments">
+                <field name="name"/>
+                <field name="capacity"/>
+                <field name="patient_count"/>
+                <field name="is_opened"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Department Action -->
+    <record id="action_hms_department" model="ir.actions.act_window">
+        <field name="name">Departments</field>
+        <field name="res_model">hms.department</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Doctor Form View -->
+    <record id="view_hms_doctor_form" model="ir.ui.view">
+        <field name="name">hms.doctor.form</field>
+        <field name="model">hms.doctor</field>
+        <field name="arch" type="xml">
+            <form string="Doctor">
+                <sheet>
+                    <field name="image" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="full_name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="first_name"/>
+                        <field name="last_name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Doctor List View -->
+    <record id="view_hms_doctor_list" model="ir.ui.view">
+        <field name="name">hms.doctor.list</field>
+        <field name="model">hms.doctor</field>
+        <field name="arch" type="xml">
+            <list string="Doctors">
+                <field name="full_name"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Doctor Action -->
+    <record id="action_hms_doctor" model="ir.actions.act_window">
+        <field name="name">Doctors</field>
+        <field name="res_model">hms.doctor</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
+
