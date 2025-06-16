@@ -1,0 +1,11 @@
+# Odoo 18 HMS Module Dependencies
+Babel>=2.9.1
+PyPDF2>=2.10.0
+zeep>=4.1.0
+psutil>=5.8.0
+lxml_html_clean>=0.1.0
+Jinja2>=3.0.0
+pyOpenSSL>=22.0.0
+cryptography>=38.0.2
+rjsmin>=1.1.0
+num2words>=0.5.10
