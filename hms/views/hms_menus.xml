@@ -3,5 +3,11 @@
     <menuitem id="menu_hms_root" name="HMS"/>
     <menuitem id="menu_hms_patients" name="Patients" parent="menu_hms_root" action="action_hms_patient"/>
     <menuitem id="menu_hms_departments" name="Departments" parent="menu_hms_root" action="action_hms_department"/>
-    <menuitem id="menu_hms_doctors" name="Doctors" parent="menu_hms_root" action="action_hms_doctor"/>
+    <!-- Doctors menu only visible to managers -->
+    <menuitem id="menu_hms_doctors" name="Doctors" parent="menu_hms_root" action="action_hms_doctor"
+              groups="hms.group_hms_manager"/>
+    <!-- Reports menu -->
+    <menuitem id="menu_hms_reports" name="Reports" parent="menu_hms_root" sequence="50"/>
+    <menuitem id="menu_hms_patient_report" name="Patient Status Report" parent="menu_hms_reports"
+              action="action_hms_patient_report"/>
 </odoo>

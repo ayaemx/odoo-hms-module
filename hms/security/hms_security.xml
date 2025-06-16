@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- HMS Security Categories -->
+    <record id="module_category_hms" model="ir.module.category">
+        <field name="name">Hospital Management System</field>
+        <field name="description">User access levels for HMS</field>
+        <field name="sequence">20</field>
+    </record>
+
+    <!-- HMS User Group -->
+    <record id="group_hms_user" model="res.groups">
+        <field name="name">HMS User</field>
+        <field name="category_id" ref="module_category_hms"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="comment">HMS User: Can manage own patients, read-only access to departments and doctors</field>
+    </record>
+
+    <!-- HMS Manager Group -->
+    <record id="group_hms_manager" model="res.groups">
+        <field name="name">HMS Manager</field>
+        <field name="category_id" ref="module_category_hms"/>
+        <field name="implied_ids" eval="[(4, ref('group_hms_user'))]"/>
+        <field name="comment">HMS Manager: Full access to all HMS features</field>
+    </record>
+</odoo>

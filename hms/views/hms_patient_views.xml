@@ -34,7 +34,9 @@
                             <field name="history" invisible="age &lt; 50"/>
                             <field name="department_id" domain="[('is_opened', '=', True)]"/>
                             <field name="department_capacity" readonly="1"/>
-                            <field name="doctor_ids" widget="many2many_tags" readonly="department_id == False"/>
+                            <!-- Doctor fields only visible to managers -->
+                            <field name="doctor_ids" widget="many2many_tags" readonly="department_id == False"
+                                   groups="hms.group_hms_manager"/>
                         </group>
                     </group>
                     <notebook>
@@ -52,6 +54,7 @@
             </form>
         </field>
     </record>
+
     <record id="view_hms_patient_list" model="ir.ui.view">
         <field name="name">hms.patient.list</field>
         <field name="model">hms.patient</field>
@@ -62,9 +65,11 @@
                 <field name="age"/>
                 <field name="blood_type"/>
                 <field name="state"/>
+                <field name="department_id"/>
             </list>
         </field>
     </record>
+
     <record id="action_hms_patient" model="ir.actions.act_window">
         <field name="name">Patients</field>
         <field name="res_model">hms.patient</field>

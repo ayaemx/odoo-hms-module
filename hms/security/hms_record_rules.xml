@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Record Rule: Users can only access their own patients -->
+    <record id="rule_patient_user_own" model="ir.rule">
+        <field name="name">User can only access own patients</field>
+        <field name="model_id" ref="model_hms_patient"/>
+        <field name="domain_force">[('create_uid', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('group_hms_user'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Record Rule: Managers can access all patients -->
+    <record id="rule_patient_manager_all" model="ir.rule">
+        <field name="name">Manager can access all patients</field>
+        <field name="model_id" ref="model_hms_patient"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_hms_manager'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+</odoo>
